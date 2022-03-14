@@ -11,6 +11,10 @@ plugins {
     id 'java-library'
 }
 
+repositories {
+    mavenCentral()
+}
+
 dependencies {
     // Use JUnit test framework.
     testImplementation 'junit:junit:4.13'
@@ -21,25 +25,7 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:29.0-jre'
     
-    providedCompile 'org.owasp:esapi:2.2.3.1'
+    // https://mvnrepository.com/artifact/org.owasp.esapi/esapi
+    implementation 'org.owasp.esapi:esapi:2.2.3.1'
         
-}
-
-    group = 'com.softwareag.zsl'
-    defaultTasks 'build'
-
-	repositories {
-		ivy {
-			name 'ext-staging-release-local'
-			url 'https://bas.eur.ad.sag:8081/artifactory/ext-staging-release-local/'
-			layout 'maven'
-			
-			name 'ext-redist-release-local'
-			url 'https://bas.eur.ad.sag:8081/artifactory/ext-redist-release-local/'
-			layout 'maven'
-			
-			name 'third-party-approved-local'
-			url 'https://bas.eur.ad.sag:8081/artifactory/third-party-approved-local'
-			layout 'maven'
-		}
 }
