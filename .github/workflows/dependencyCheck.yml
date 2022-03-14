@@ -37,8 +37,10 @@ jobs:
     runs-on: ubuntu-latest
     name: depecheck_test
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+      - name: Download Artifact from Gradle Build
+        uses: actions/download-artifact@v3
+        with:
+          name: Package
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
