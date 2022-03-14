@@ -15,6 +15,8 @@ jobs:
           java-version: '8'
           java-package: jdk
           architecture: x64
+          distribution: 'adopt'
+          cache: 'gradle'
       - name: set JDK 8 environment variables for kotlin compiler
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: true
