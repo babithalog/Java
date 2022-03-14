@@ -1,11 +1,11 @@
-name: Dependency Check
+name: Gradle Build
   
 on: [push]
 
 jobs:
-  depchecktest:
+  gradlebuild:
     runs-on: ubuntu-latest
-    name: depecheck_test
+    name: gradle_build
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -31,6 +31,14 @@ jobs:
         with:
           name: Package
           path: build/libs
+          
+  depchecktest:
+    needs: gradlebuild
+    runs-on: ubuntu-latest
+    name: depecheck_test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
