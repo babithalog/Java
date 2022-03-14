@@ -10,12 +10,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        
         # Cache Gradle dependencies
       - name: Setup Gradle Dependencies Cache
-        uses: actions/cache@v2
+      - uses: actions/cache@v2
         with:
-          path: '/home/runner/.gradle/.tmp'
-          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle', '**/*.gradle.kts') }}
+          path: |
+            ~/.gradle/.tmp           
+          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle/.tmp/*') }}
+          restore-keys: |
+            ${{ runner.os }}-gradle-
+          
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
       - name: Build with Gradle
