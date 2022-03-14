@@ -13,7 +13,7 @@ jobs:
         
         # Cache Gradle dependencies
       - name: Setup Gradle Dependencies Cache
-      - uses: actions/cache@v2
+        uses: actions/cache@v2
         with:
           path: |
             ~/.gradle/.tmp           
