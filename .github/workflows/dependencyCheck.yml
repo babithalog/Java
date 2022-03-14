@@ -44,7 +44,7 @@ jobs:
         id: Depcheck
         with:
           project: 'test'
-          path: '.'
+          path: 'build/libs'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
