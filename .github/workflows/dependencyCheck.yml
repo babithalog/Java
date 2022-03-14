@@ -20,8 +20,8 @@ jobs:
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
         with:
-          project: 'test'
-          path: '/home/runner/.gradle/caches'
+          project: 'ProjectAction'
+          path: ${{github.workspace}}
           format: 'HTML'    
           args: >
             --failOnCVSS 7
