@@ -15,7 +15,7 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build
+          arguments: dependencyCheckAnalyze
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
