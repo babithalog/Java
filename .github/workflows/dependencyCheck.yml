@@ -10,6 +10,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        # Cache Gradle dependencies
+      - name: Setup Gradle Dependencies Cache
+        uses: actions/cache@v2
+        with:
+          path: '/home/runner/.gradle/.tmp'
+          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle', '**/*.gradle.kts') }}
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
       - name: Build with Gradle
@@ -17,14 +23,8 @@ jobs:
         #uses: gradle/gradle-build-action@v2
        # with:
          # arguments: build
-          
-      # Cache Gradle dependencies
-      - name: Setup Gradle Dependencies Cache
-        uses: actions/cache@v2
-        with:
-          path: ~/.gradle/caches
-          key: ${{ runner.os }}-gradle-caches-${{ hashFiles('**/*.gradle', '**/*.gradle.kts') }}
-          
+         
+               
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
