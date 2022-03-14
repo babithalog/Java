@@ -21,7 +21,7 @@ jobs:
         id: Depcheck
         with:
           project: 'ProjectAction'
-          path: '/home/runner/.gradle/caches/modules-*/files-*/*/*/*/*'
+          path: '/home/runner/.gradle/caches/modules-*/'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
