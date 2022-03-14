@@ -15,13 +15,13 @@ jobs:
       - name: Build with Gradle
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: dependencyCheckAnalyze
+          arguments: build
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
         with:
           project: 'test'
-          path: '.'
+          path: '~/.gradle/caches'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
