@@ -21,7 +21,7 @@ jobs:
         id: Depcheck
         with:
           project: 'test'
-          path: '~/.gradle/caches'
+          path: '/home/runner/.gradle/caches'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
