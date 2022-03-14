@@ -16,6 +16,11 @@ jobs:
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
+      - name: Output Content
+        shell: bash
+        run: |
+          value=`cat /home/runner/.gradle/project-roots.txt`
+          echo The result is $value
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
