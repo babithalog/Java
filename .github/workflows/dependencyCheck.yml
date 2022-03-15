@@ -22,16 +22,10 @@ jobs:
         run: |
           find /home/runner/.gradle/caches/ -name "*.jar" -print0 | xargs -0 cp -t "./"
           find ./ -name "*.jar"
-                               
-      - name: Depcheck
-        uses: dependency-check/Dependency-Check_Action@main
-        id: Depcheck
-        with:
-          project: 'ProjectAction'
-          path: '.'
-          format: 'HTML'    
-          args: >
-            --enableRetired
+     
+      - name: Dependency Checker
+        run: |
+          ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/github/workspace/reports"
             
       - name: Upload Test results
         uses: actions/upload-artifact@master
