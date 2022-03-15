@@ -16,14 +16,15 @@ jobs:
         
       - name: Build with Gradle
         run: ./gradlew build --info
+          ls -al /home/runner/.gradle/.tmp/
         #uses: gradle/gradle-build-action@v2
        # with:
          # arguments: build
          
-      - name: Copy downloaded jars
-        run: |
-          mkdir /opt/dependencies
-          ls -al /home/runner/.gradle/.tmp/gradle_download*/
+      #- name: Copy downloaded jars
+      #  run: |
+         # mkdir /opt/dependencies
+         # ls -al /home/runner/.gradle/.tmp/
           #cp /home/runner/.gradle/.tmp/gradle_download*/*.jar /opt/dependencies/
                
       - name: Depcheck
