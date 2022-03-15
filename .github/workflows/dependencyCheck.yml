@@ -25,6 +25,7 @@ jobs:
      
       - name: Dependency Checker
         run: |
+          chmod +x ./dependency-check/bin/dependency-check.sh
           ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/github/workspace/reports"
             
       - name: Upload Test results
