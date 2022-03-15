@@ -25,8 +25,7 @@ jobs:
         run: |
          mkdir /opt/dependencies
          ls -al /home/runner/.gradle/.tmp/
-         echo /home/runner/.gradle/.tmp/gradle-worker-classpath*txt
-          #cp /home/runner/.gradle/.tmp/gradle_download*/*.jar /opt/dependencies/
+         cp -a /home/runner/.gradle/.tmp/. /opt/dependencies/
                
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
