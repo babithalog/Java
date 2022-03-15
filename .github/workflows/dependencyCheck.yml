@@ -25,8 +25,9 @@ jobs:
         run: |
           mkdir /home/runner/dependencies
           chmod 777 /home/runner/dependencies
-          find /home/runner/.gradle/caches -name "*.jar"
-          # find ./ -name "*.jar" -print0 | xargs -0 cp -t "/home/runner/dependencies"
+          #find /home/runner/.gradle/caches -name "*.jar"
+          find ./ -name "*.jar" -print0 | xargs -0 cp -t "/home/runner/dependencies"
+          find /home/runner/dependencies -name "*.jar"
          # ls -al /opt/dependencies/
          
        #  mkdir /opt/dependencies
