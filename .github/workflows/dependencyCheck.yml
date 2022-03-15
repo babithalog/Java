@@ -16,26 +16,15 @@ jobs:
         
       - name: Build with Gradle
         run: ./gradlew build --info
-         
-        #uses: gradle/gradle-build-action@v2
-       # with:
-         # arguments: build
-         
+                 
       - name: Copy downloaded jars
         run: |
-          mkdir /home/runner/dependencies
-          chmod 777 /home/runner/dependencies
-          #find /home/runner/.gradle/caches -name "*.jar"
-          find /home/runner/.gradle/caches/ -name "*.jar" -print0 | xargs -0 cp -t "/home/runner/dependencies"
-          find /home/runner/dependencies -name "*.jar"
-         # ls -al /opt/dependencies/
-         
-       #  mkdir /opt/dependencies
-       #  chmod 777 /home/runner/.gradle/.tmp/*
-       #  ls -al /home/runner/.gradle/.tmp/
-       #  cp -a /home/runner/.gradle/.tmp/. /opt/dependencies/
-         
-               
+         # mkdir /home/runner/dependencies
+         # chmod 777 /home/runner/dependencies
+          find /home/runner/.gradle/caches/ -name "*.jar" -print0 | xargs -0 cp -t "./"
+          find ./ -name "*.jar"
+         # find /home/runner/dependencies -name "*.jar"
+                       
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
@@ -46,7 +35,7 @@ jobs:
           args: >
             --failOnCVSS 7
             --enableRetired
-            --scan '/home/runner/dependencies'
+            #--scan '/home/runner/dependencies'
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
