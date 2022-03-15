@@ -27,11 +27,11 @@ jobs:
         id: Depcheck
         with:
           project: 'ProjectAction'
-          path: '.'
+          path: "/home/runner/.gradle/caches"
           format: 'HTML'    
           args: >
             --enableRetired
-            --scan "/home/runner/.gradle/caches/*.jar"
+            
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
