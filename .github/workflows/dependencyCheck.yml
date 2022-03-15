@@ -26,11 +26,11 @@ jobs:
       - name: Dependency Checker
         run: |
           chmod +x ./dependency-check/bin/dependency-check.sh
-          ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/github/workspace/reports"
+          ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
             
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
            name: Depcheck report
-           path: ${{github.workspace}}/reports
+           path: /home/runner/reports
            
