@@ -33,7 +33,7 @@ jobs:
           path: '.'
           format: 'HTML'    
           args: >
-            --failOnCVSS 10
+            --failOnCVSS 0
             --enableRetired
             #--scan '/home/runner/dependencies'
       - name: Upload Test results
