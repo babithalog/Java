@@ -27,7 +27,7 @@ jobs:
         id: Depcheck
         with:
           project: 'ProjectAction'
-          path: "/home/runner/.gradle/caches"
+          path: '.'
           format: 'HTML'    
           args: >
             --enableRetired
