@@ -26,6 +26,7 @@ jobs:
          mkdir /opt/dependencies
          ls -al /home/runner/.gradle/.tmp/
          cp -a /home/runner/.gradle/.tmp/. /opt/dependencies/
+         ls -al /opt/dependencies/
                
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
