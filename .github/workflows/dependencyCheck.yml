@@ -10,32 +10,27 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-        
-        # Cache Gradle dependencies
-      - name: Setup Gradle Dependencies Cache
-        uses: actions/cache@v2
-        with:
-          path: |
-            ~/.gradle/.tmp           
-          key: ${{ runner.os }}-gradle-${{ hashFiles('**/*.gradle/.tmp/*') }}
-          restore-keys: |
-            ${{ runner.os }}-gradle-
           
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
+        
       - name: Build with Gradle
         run: ./gradlew build --info
         #uses: gradle/gradle-build-action@v2
        # with:
          # arguments: build
          
+      - name: Copy downloaded jars
+        run: |
+          mkdir /opt/dependencies
+          cp /home/runner/.gradle/.tmp/gradle_download*/*.jar /opt/dependencies/
                
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
         with:
           project: 'ProjectAction'
-          path: '/home/runner/.gradle/'
+          path: '/opt/dependencies'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
