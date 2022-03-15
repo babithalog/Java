@@ -41,11 +41,12 @@ jobs:
         id: Depcheck
         with:
           project: 'ProjectAction'
-          path: '/home/runner/dependencies'
+          path: '.'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
             --enableRetired
+            --scan '/home/runner/dependencies'
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
