@@ -33,9 +33,8 @@ jobs:
           path: '.'
           format: 'HTML'    
           args: >
-            --failOnCVSS 0
             --enableRetired
-            #--scan '/home/runner/dependencies'
+           
       - name: Upload Test results
         uses: actions/upload-artifact@master
         with:
