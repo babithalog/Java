@@ -19,12 +19,9 @@ jobs:
                  
       - name: Copy downloaded jars
         run: |
-         # mkdir /home/runner/dependencies
-         # chmod 777 /home/runner/dependencies
           find /home/runner/.gradle/caches/ -name "*.jar" -print0 | xargs -0 cp -t "./"
           find ./ -name "*.jar"
-         # find /home/runner/dependencies -name "*.jar"
-                       
+                               
       - name: Depcheck
         uses: dependency-check/Dependency-Check_Action@main
         id: Depcheck
