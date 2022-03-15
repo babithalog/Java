@@ -23,9 +23,12 @@ jobs:
          
       - name: Copy downloaded jars
         run: |
+          mkdir /home/runner/dependencies
+          chmod 777 /home/runner/dependencies
           find /home/runner/.gradle/caches -name "*.jar"
+          # find ./ -name "*.jar" -print0 | xargs -0 cp -t "/home/runner/dependencies"
          # ls -al /opt/dependencies/
-         # find ./ -name "*.jar" -print0 | xargs -0 cp -t "Destination"
+         
        #  mkdir /opt/dependencies
        #  chmod 777 /home/runner/.gradle/.tmp/*
        #  ls -al /home/runner/.gradle/.tmp/
@@ -37,7 +40,7 @@ jobs:
         id: Depcheck
         with:
           project: 'ProjectAction'
-          path: '/opt/dependencies'
+          path: '/home/runner/dependencies'
           format: 'HTML'    
           args: >
             --failOnCVSS 7
