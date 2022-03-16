@@ -11,26 +11,27 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
           
-          
       - name: Change wrapper permissions
         run: chmod +x ./gradlew
         
       - name: Build with Gradle
         run: ./gradlew build --info
                  
-      - name: Copy downloaded jars
+      - name: Download Dependency Checker
         run: |
-          find /home/runner/.gradle/caches/ -name "*.jar" -print0 | xargs -0 cp -t "./"
-          find ./ -name "*.jar"
-     
-      - name: Dependency Checker
-        run: |
-          chmod +x ./dependency-check/bin/dependency-check.sh
-          ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
+          wget "https://github.com/babithalog/Java/blob/main/dependency-check-7.0.0-release.zip" -P "/home/runner/"
+          cd /home/runner
+          unzip dependency-check-7.0.0-release.zip
+          ls -al
+          
+     # - name: Dependency Checker
+      #  run: |
+       #   chmod +x ./dependency-check/bin/dependency-check.sh
+        #  ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
             
-      - name: Upload Test results
-        uses: actions/upload-artifact@master
-        with:
-           name: Depcheck report
-           path: /home/runner/reports
+    #  - name: Upload Test results
+     #   uses: actions/upload-artifact@master
+      #  with:
+       #    name: Depcheck report
+        #   path: /home/runner/reports
            
