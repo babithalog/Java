@@ -11,19 +11,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
           
-     # - name: Change wrapper permissions
-      #  run: chmod +x ./gradlew
+      - name: Change wrapper permissions
+        run: chmod +x ./gradlew
         
-     # - name: Build with Gradle
-      #  run: ./gradlew build --info
+      - name: Build with Gradle
+        run: ./gradlew build --info
                  
-      - name: Download Dependency Checker
+      - name: Download and Execute Dependency Checker
         run: |
           git clone https://github.com/babithalog/DependencyCheck.git
           cd DependencyCheck/DependencyCheck/bin
-          ls -al
-          #mvn -s settings.xml install
-         # ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
+                   
+          dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
         
         #  mkdir /home/runner/downloads
         #  curl "https://github.com/jeremylong/DependencyCheck/releases/download/v7.0.0/dependency-check-7.0.0-release.zip" --output /home/runner/downloads/dependency-check-7.0.0-release.zip
@@ -40,9 +39,9 @@ jobs:
        #   chmod +x ./dependency-check/bin/dependency-check.sh
         #  ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
             
-    #  - name: Upload Test results
-     #   uses: actions/upload-artifact@master
-      #  with:
-       #    name: Depcheck report
-        #   path: /home/runner/reports
+      - name: Upload Test results
+        uses: actions/upload-artifact@master
+        with:
+           name: Depcheck report
+           path: /home/runner/reports
            
