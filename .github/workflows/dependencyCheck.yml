@@ -19,8 +19,9 @@ jobs:
                  
       - name: Download Dependency Checker
         run: |
-          curl "https://github.com/babithalog/Java/main/Tools/dependency-check-7.0.0-release.zip?raw=true" -P "/home/runner/"
-          cd /home/runner
+          mkdir /home/runner/downloads
+          curl "https://github.com/babithalog/Java/main/Tools/dependency-check-7.0.0-release.zip?raw=true" --output /home/runner/downloads/dependency-check.zip
+          cd /home/runner/downloads
           ls -al
          # unzip dependency-check-7.0.0-release.zip
           
