@@ -20,12 +20,12 @@ jobs:
       - name: Download Dependency Checker
         run: |
           mkdir /home/runner/downloads
-          curl "https://github.com/jeremylong/DependencyCheck/releases/download/v7.0.0/dependency-check-7.0.0-release.zip" --output /home/runner/downloads/dependency-check.zip
-          #curl "https://github.com/babithalog/Java/main/Tools/dependency-check-7.0.0-release.zip?raw=true" --output /home/runner/downloads/dependency-check.zip
+          curl "https://github.com/jeremylong/DependencyCheck/releases/download/v7.0.0/dependency-check-7.0.0-release.zip" --output /home/runner/downloads/dependency-check-7.0.0-release.zip
+          #curl "https://github.com/babithalog/Java/main/Tools/dependency-check-7.0.0-release.zip?raw=true" --output /home/runner/downloads/dependency-check-7.0.0-release.zip
           cd /home/runner/downloads
           ls -al
-          chmod +x dependency-check.zip
-          jar xvf dependency-check.zip
+          chmod +x dependency-check-7.0.0-release.zip
+          jar xvf dependency-check-7.0.0-release.zip
           ls -al
           
           
