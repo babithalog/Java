@@ -19,7 +19,7 @@ jobs:
                  
       - name: Download Dependency Checker
         run: |
-          wget "https://github.com/babithalog/Java/blob/main/dependency-check-7.0.0-release.zip" -P "/home/runner/"
+          wget "https://github.com/babithalog/Java/blob/main/Tools/dependency-check-7.0.0-release.zip?raw=true" -P "/home/runner/"
           cd /home/runner
           unzip dependency-check-7.0.0-release.zip
           ls -al
