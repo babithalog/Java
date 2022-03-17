@@ -19,7 +19,7 @@ jobs:
                  
       - name: Download Dependency Checker
         run: |
-          git clone --depth 1 https://github.com/jeremylong/DependencyCheck.git
+          git clone https://github.com/babithalog/DependencyCheck.git
           cd DependencyCheck
           ls -al
           #mvn -s settings.xml install
