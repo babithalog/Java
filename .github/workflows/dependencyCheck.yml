@@ -20,7 +20,7 @@ jobs:
       - name: Download Dependency Checker
         run: |
           git clone https://github.com/babithalog/DependencyCheck.git
-          cd DependencyCheck
+          cd DependencyCheck/DependencyCheck/bin
           ls -al
           #mvn -s settings.xml install
          # ./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
