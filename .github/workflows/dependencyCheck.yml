@@ -24,7 +24,7 @@ jobs:
           cd /home/runner/downloads
           ls -al
           chmod +x dependency-check.zip
-          unzip dependency-check.zip
+          jar xvf dependency-check.zip
           ls -al
           
           
