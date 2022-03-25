@@ -5,25 +5,22 @@ on: [push]
 jobs:
          
   depchecktest:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     name: OVAS Scan
     steps:
       - name: Checkout
         uses: actions/checkout@v2
           
-      - name: Change wrapper permissions
-        run: chmod +x ./gradlew
-        
-      - name: Build with Gradle
-        run: ./gradlew build --info
-                 
+                     
       - name: Download and Execute Dependency Checker
+        shell: cmd
         run: |
-          git clone https://github.com/babithalog/DependencyCheck.git
-          cd DependencyCheck/DependencyCheck/bin
-          chmod +x ./dependency-check.sh
-          ls -al         
-          ./dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
+          dir
+         # git clone https://github.com/babithalog/DependencyCheck.git
+          #cd DependencyCheck/DependencyCheck/bin
+         # chmod +x ./dependency-check.sh
+          #ls -al         
+          #./dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
         
         #  mkdir /home/runner/downloads
         #  curl "https://github.com/jeremylong/DependencyCheck/releases/download/v7.0.0/dependency-check-7.0.0-release.zip" --output /home/runner/downloads/dependency-check-7.0.0-release.zip
