@@ -18,7 +18,9 @@ jobs:
           git clone https://github.com/babithalog/DependencyCheck.git
           cd DependencyCheck/DependencyCheck/bin
           icacls "./dependency-check.bat" /grant Users:F
-          dir
+          ./dependency-check.bat --project "Test" --scan "..\..\..\" -format "HTML" --out "C:\reports"
+        
+          
          # chmod +x ./dependency-check.sh
           #ls -al         
           #./dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
@@ -42,5 +44,5 @@ jobs:
         uses: actions/upload-artifact@master
         with:
            name: Depcheck report
-           path: /home/runner/reports
+           path: C:\reports
            
