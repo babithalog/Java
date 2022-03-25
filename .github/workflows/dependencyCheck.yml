@@ -15,9 +15,10 @@ jobs:
       - name: Download and Execute Dependency Checker
         shell: cmd
         run: |
+          git clone https://github.com/babithalog/DependencyCheck.git
+          cd DependencyCheck/DependencyCheck/bin
+          icacls "./dependency-check.bat" /grant Users:F
           dir
-         # git clone https://github.com/babithalog/DependencyCheck.git
-          #cd DependencyCheck/DependencyCheck/bin
          # chmod +x ./dependency-check.sh
           #ls -al         
           #./dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
