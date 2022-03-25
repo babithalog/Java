@@ -18,7 +18,7 @@ jobs:
           git clone https://github.com/babithalog/DependencyCheck.git
           cd DependencyCheck/DependencyCheck/bin
           icacls "./dependency-check.bat" /grant Users:F
-          ./dependency-check.bat --project "Test" --scan "..\..\..\" -format "HTML" --out "C:\reports"
+          ./dependency-check.bat --project "Test" --scan "D:\" -format "HTML" --out "D:\reports"
         
           
          # chmod +x ./dependency-check.sh
@@ -44,5 +44,5 @@ jobs:
         uses: actions/upload-artifact@master
         with:
            name: Depcheck report
-           path: C:\reports
+           path: D:\reports
            
