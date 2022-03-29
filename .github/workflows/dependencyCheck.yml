@@ -5,7 +5,7 @@ on: [push]
 jobs:
          
   depchecktest:
-    runs-on: windows-latest
+    runs-on: windows-runner
     name: OVAS Scan
     steps:
       - name: Checkout
