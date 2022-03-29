@@ -5,7 +5,7 @@ on: [push]
 jobs:
          
   depchecktest:
-    runs-on: windows-runner
+    runs-on: self-hosted
     name: OVAS Scan
     steps:
       - name: Checkout
