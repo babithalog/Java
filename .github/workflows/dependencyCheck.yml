@@ -16,14 +16,9 @@ jobs:
         shell: cmd
         run: |
           git clone https://github.com/babithalog/DependencyCheck.git
-          cd DependencyCheck/DependencyCheck/bin
-          icacls "./dependency-check.bat" /grant Users:F
-          ./dependency-check.bat --project "Test" --scan "D:\" -format "HTML" --out "D:\reports"
-        
-          
-         # chmod +x ./dependency-check.sh
-          #ls -al         
-          #./dependency-check.sh --project "Test" --scan "/home/runner/.gradle/caches/" -format "HTML" --out "/home/runner/reports"
+          chmod +x ./dependency-check.sh
+          ls -al         
+          ./dependency-check.sh --project "Test" --scan "/home/cuckoo/.gradle/caches/" -format "HTML" --out "/home/cuckoo/reports"
         
         #  mkdir /home/runner/downloads
         #  curl "https://github.com/jeremylong/DependencyCheck/releases/download/v7.0.0/dependency-check-7.0.0-release.zip" --output /home/runner/downloads/dependency-check-7.0.0-release.zip
@@ -44,5 +39,5 @@ jobs:
         uses: actions/upload-artifact@master
         with:
            name: Depcheck report
-           path: D:\reports
+           path: "/home/cuckoo/reports"
            
