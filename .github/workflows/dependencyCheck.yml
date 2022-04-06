@@ -16,9 +16,9 @@ jobs:
         run: |
           git clone https://github.com/babithalog/DependencyCheck.git
           ls -al
-          #chmod +x ./dependency-check/bin/dependency-check.sh
+          #chmod +x ./DependencyCheck/bin/dependency-check.sh
           #ls -al         
-          #./dependency-check/bin/dependency-check.sh --project "Test" --scan "/home/cuckoo/.gradle/caches/" -format "HTML" --out "/home/cuckoo/reports"
+          #./DependencyCheck/bin/dependency-check.sh --project "Test" --scan "/home/cuckoo/.gradle/caches/" -format "HTML" --out "/home/cuckoo/reports"
         shell: bash
         #  mkdir /home/runner/downloads
         #  curl "https://github.com/jeremylong/DependencyCheck/releases/download/v7.0.0/dependency-check-7.0.0-release.zip" --output /home/runner/downloads/dependency-check-7.0.0-release.zip
