@@ -16,6 +16,8 @@ jobs:
         shell: bash
         run: |
           git clone https://github.com/babithalog/DependencyCheck.git
+          cd bin
+          ls -al
           chmod +x ./dependency-check.sh
           ls -al         
           ./dependency-check.sh --project "Test" --scan "/home/cuckoo/.gradle/caches/" -format "HTML" --out "/home/cuckoo/reports"
