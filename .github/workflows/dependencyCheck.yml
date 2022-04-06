@@ -13,7 +13,7 @@ jobs:
           
                      
       - name: Download and Execute Dependency Checker
-        shell: cmd
+        shell: bash
         run: |
           git clone https://github.com/babithalog/DependencyCheck.git
           chmod +x ./dependency-check.sh
