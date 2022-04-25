@@ -1,7 +1,5 @@
 name: Scorecards supply-chain security
-on: 
- push:
-    branches: [ develop ]
+on: [push]
 
 # Declare default permissions as read only.
 permissions: read-all
