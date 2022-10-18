@@ -1,2 +1,14 @@
-- name: Dependency Review
-  uses: actions/dependency-review-action@v2.5.0
+name: 'Dependency Review'
+on: [push]
+
+permissions:
+  contents: read
+
+jobs:
+  dependency-review:
+    runs-on: self-hosted
+    steps:
+      - name: 'Checkout Repository'
+        uses: actions/checkout@v3
+      - name: Dependency Review
+        uses: actions/dependency-review-action@v2.5.0
